@@ -1,0 +1,29 @@
+%---------------------------------------------------------------------------%
+%->> Abstract
+%---------------------------------------------------------------------------%
+%-
+%-> 中文摘要
+%-
+\begin{abstract}
+随着社交媒体和电商平台的不断发展，短文本已经成为当今互联网时代重要的信息载体。如何提取和分析这些文本信息一直是业界的关键研究领域之一。主题建模是一个自动将大量文档压缩成内容摘要的过程，这种摘要以多组相关词汇的形式展示潜在的主题。然而，由于短文本的长度有限，使得传统的主题模型在处理这类文本时，往往会挖掘出嘈杂甚至是没有意义的主题。许多研究为短文本主题建模提出了各种策略和方法，但仍无法为其提供充分且可靠的语义信息。针对现有研究的不足之处，本研究提出一种基于大规模语言模型的短文本数据增强方法，通过生成伪长本文来解决短文本的稀疏性问题，并基于这些文本特性构建主题模型。此外，本研究还基于变分自编码器来构建稀疏主题模型，以增强短文本主题模型的表达能力。本文的主要工作包括：
+
+（1）针对主题模型中无法为短文本提供充分且可靠的语义信息这一问题，本论文提出了一种基于提示的短文本扩充方法（IE），利用可以进行文本自动生成的大规模语言模型，通过指令提示将每个短文本扩充为伪长文本。利用这一方法，可以将LLMs的知识迁移到短文本主题建模中，而无需人为收集额外的辅助信息。其次，本论文提出一种基于成对文本的主题模型（TPTM）。其假设短文本与伪长文本是一组成对数据，且短文本中的主题来自其对应的伪长文本中的主题。这种假设利用了丰富的单词共现信息和短文本的独特信息，以改进主题建模过程。
+
+（2）针对主题模型的表达能力不足的问题，本论文基于变分自编码器构建了稀疏增强的非均场主题模型（SpareNTM）。该模型基于短文本的特点，在主题模型的生成过程中用引入伯努利辅助变量来进一步建模文档表示的稀疏性。因此，每个文本都将通过相应的伯努利主题选择器，只关注于一小部分主题。此外，SpareNTM最大的创新点在于，充分利用了变分自编码器的能力实现非均值场近似来估计真实后验，从而保留了隐变量之间的关系。
+    
+\keywords{短文本，主题模型，数据增强，变分自编码器，数据挖掘}% 中文关键词
+\end{abstract}
+%-
+%-> 英文摘要
+%-
+\begin{ABSTRACT}
+With the continuous development of social media and e-commerce platforms, short texts have become an important carrier of information in today's Internet era. How to extract and analyze these text information has always been one of the key research areas in the industry. Topic modeling is a process that automatically compresses a large number of documents into content summaries, which are presented in the form of groups of related words to reveal underlying themes. However, due to the limited length of short texts, traditional topic models often mine out noisy or even meaningless themes when dealing with such texts. Many studies have proposed various strategies and methods for short text topic modeling, but still fail to provide sufficient and reliable semantic information. To address the shortcomings of existing research, this study proposes a short text data augmentation method based on large-scale language models, which solves the sparsity problem of short texts by generating pseudo-long texts and builds topic models based on these text characteristics. In addition, this study also constructs a sparsity-enhanced topic model based on variational autoencoders to enhance the expressive power of short text topic models. The main work of this paper includes:
+
+(1) To address the issue that topic models cannot provide sufficient and reliable semantic information for short texts, this paper proposes an Instruction-based Expansion (IE) method for short texts, which utilizes large-scale language models capable of automatic text generation to expand each short text into a pseudo-long text through instructional prompts. This method allows the knowledge of LLMs to be transferred to short text topic modeling without the need for manually collecting additional auxiliary information. Secondly, this paper proposes a Topic Model based on Paired Texts (TPTM), which assumes that short texts and their corresponding pseudo-long texts are a pair of data, and the topics in short texts are derived from the topics in their corresponding pseudo-long texts. This assumption takes advantage of the rich word co-occurrence information and the unique information of short texts to improve the topic modeling process.
+    
+(2) To address the issue of insufficient expressive power of topic models, this paper constructs a Sparsity Reinforced and Non-Mean-Field Topic Model (SpareNTM) based on variational autoencoders. This model, based on the characteristics of short texts, further models the sparsity of document representations by introducing Bernoulli auxiliary variables in the generation process of the topic model. Thus, each text focuses only on a small subset of topics through the corresponding Bernoulli topic selector. Furthermore, the most innovative aspect of SpareNTM is that it fully utilizes the capability of variational autoencoders to achieve non-mean-field approximation to estimate the true posterior, thereby preserving the relationships between latent variables.
+
+
+\KEYWORDS{short text, topic model, data augmentation, variational autoencoder, data mining}% 英文关键词
+\end{ABSTRACT}
+%---------------------------------------------------------------------------%
