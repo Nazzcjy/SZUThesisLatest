@@ -49,6 +49,22 @@
 \RequirePackage{xeCJKfntef}% underline for CJK
 \RequirePackage{fancyhdr}% header and footer
 \RequirePackage[backend=biber,style=gb7714-2015,gbpub=false]{biblatex}
+
+% 设置fancyhdr
+\pagestyle{fancy} % 使用fancy页面样式
+\fancyhf{} % 清除所有页眉和页脚的默认设置
+\fancyhead[LE,RO]{\leftmark} % 在偶数页的左侧和奇数页的右侧显示当前章节的名称和编号
+\fancyfoot[C]{\thepage} % 在页脚中间设置页码
+
+% 章节起始页的风格
+\fancypagestyle{plain}{ 
+  \fancyhf{} % 清除页眉和页脚
+  \renewcommand{\headrulewidth}{0pt} % 去掉页眉下方的横线
+  \fancyfoot[C]{\thepage} % 仅在页脚中间显示页码
+}
+
+% 确保章节名称被正确捕获
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter.\ #1}{}}
 %---------------------------------------------------------------------------%
 %->> Latex3
 %---------------------------------------------------------------------------%
@@ -158,6 +174,7 @@
 }{
 \szu@error{`FangSong' font is required! Please install `FangSong'}
 }
+
 \newCJKfontfamily\heitib{FZHei-B01S}[AutoFakeBold=2]
 % \def\BoldSongOptions{AutoFakeBold=2}
 % \IfFontExistsTF{Noto~Serif~CJK~SC}{
@@ -422,7 +439,7 @@
 }{\szu@clearpage}
 \newenvironment{ABSTRACT}{
     \ctexset{chapter = {
-        format = \linespread{1.0}\zihao{2}\szu@lucon\bfseries\centering,
+        format = \linespread{1.0}\zihao{3}\szu@lucon\bfseries\centering,
         beforeskip = {5pt},
         afterskip = {18pt},
     }}%
@@ -490,6 +507,19 @@
 \def\@tocrmarg{2em}% right margin for multiple line entries, \@tocrmarg ≥ \@pnumwidth
 % \def\@chaptervspace{1ex}% vertical space between chapter titles
 %-
+\usepackage{tikz}
+\newcommand{\myboldcftdotfill}{%
+  \leavevmode\leaders\hbox to 0.454em{%
+  $\m@th\mkern \@dotsep
+    \begin{tikzpicture}
+      \filldraw (0,0) circle (0.03); % 调整圆点半径来改变加粗程度
+    \end{tikzpicture}%
+    \mkern \@dotsep$
+  }\hfill\kern\z@
+}
+
+% \renewcommand{\cfttoctitlefont}{\zihao{3}\bfseries\heiti\centering}
+% \renewcommand{\cftaftertoctitle}{\vspace{24pt}\vspace{-\baselineskip}}%设置目录标题为黑体加粗
 %- redefine dottedtocline from classes.dtx and latex.ltx
 \renewcommand*{\@dottedtocline}[5]{% [<level>,<indent>,<numwidth>,<title>,<page>]
     \ifnum #1>\c@tocdepth \else
@@ -535,11 +565,14 @@
         \begingroup
             \parindent \z@ \rightskip \@pnumwidth
             \parfillskip -\@pnumwidth
-            \leavevmode \zihao{4}\rmfamily
+            \leavevmode \zihao{4}\bfseries\rmfamily
             \advance\leftskip\@tempdima
             \hskip -\leftskip
             #1\nobreak
-            \leaders\hbox{$\m@th\mkern \@dotsep \cdot\mkern \@dotsep$}% add dotted toc line
+            % \hspace{0.1em}%向右移动起始位置
+            % \leaders\hbox{$\m@th\mkern \@dotsep \pmb{\cdot} \mkern \@dotsep$}% add dotted toc line
+            \myboldcftdotfill % 使用自定义的加粗点线
+            % \hspace{-0.5em}%向右移动终点位置
             \hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
             \penalty\@highpenalty
         \endgroup
@@ -559,7 +592,7 @@
 \pagestyle{fancy}
 \fancypagestyle{mainmatterstyle}{% style for mainmatter
     \fancyhf{}% clear fields
-    \fancyhead[C]{\small\rmfamily \szu@value@ch@title}% structure elements
+    \fancyhead[C]{\small\rmfamily \leftmark}% structure elements
     \fancyfoot[C]{\small\rmfamily \thepage}% page number
     \renewcommand{\headrule}{
 \makebox[0pt][l]{\rule[0.55\baselineskip]{\headwidth}{0.5pt}}%
@@ -593,7 +626,7 @@
 \renewcommand{\tableofcontents}{
     \begingroup%
     \ctexset{chapter = {
-        format = \linespread{1.0}\zihao{2}\rmfamily\centering,
+        format = \linespread{1.0}\zihao{3}\bfseries\heitib\centering,
         beforeskip = {10pt},
         afterskip = {30pt},
     }}%
