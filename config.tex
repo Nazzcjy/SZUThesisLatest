@@ -12,14 +12,15 @@
 \author{\ \ \ \ \ \ \ \ xxx}% 论文作者
 \idnumber{\ \ \ \ \ \ \ \ xxxxxxxxx}
 \major{\ \ \ \ \ \ \ \ 计算机科学与技术}% 学科专业名称
-\dtype{\ \ \ \ \ \ \ \ 工学}
+\dtype{\ \ \ \ \ \ \ \ 工学}% 学科门类名称
 %- 注：以下两个类型支持多行
 \institute{\ \ \ \ \ \ \ \ 计算机与软件学院}% 院系名称单行
 % \institute{某某学院\\某某实验室}% 院系名称多行
 \advisor{\ \ \ \ \ \ \ \ xxxxxxxxxxx}% 指导教师单行
 % \advisor{张老师\ 教授\\王老师\ 研究员}% 指导教师多行
+% !!! 记得切换学硕专硕
 \DEGREE{MasterXS}% 学术硕士
-% \DEGREE{MasterZY}\degree{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 工程硕士}% 专业硕士
+% \DEGREE{MasterZY}% 专业硕士
 %---------------------------------------------------------------------------%
 %->> other config
 %---------------------------------------------------------------------------%
@@ -58,13 +59,9 @@
 % - fancyhdr, header and footer
 % - biblatex
 %-
-\usepackage{ctex}
-\xeCJKsetup{AutoFakeBold=true}
-\usepackage{multirow}
-\usepackage{hyperref}
-\usepackage{makecell}
+
+
 \usepackage{graphicx}
-\usepackage{adjustbox}
 \DeclareGraphicsExtensions{.pdf,.jpg,.png,.eps,.tif,.bmp}% 默认图片格式
 \graphicspath{{Image/}}% 默认图片检索路径
 %-
@@ -117,15 +114,21 @@
     % keywordstyle=\color{blue},
 }
 %-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 自用package建议注释掉没有用的包，有些包会产生冲突，但不建议全部注释，有一些可能是通用的。如果不知道要不要注释可以全部注释重新添加需要的包，或者全部保留编译有问题再排除。
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{makecell}
+\usepackage{adjustbox}
 \usepackage{amsmath,amssymb,amsfonts}
-% \usepackage{bm}
 \usepackage{array}
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{tabularx}
 \usepackage{algorithmic}
 \usepackage{diagbox}
-% \usepackage[boxed,ruled,lined]{algorithm2e}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \usepackage[ruled,vlined,linesnumbered]{algorithm2e} % 算法描述
 \SetAlgorithmName{算法}{算法}{}
 \SetArgSty{textit}

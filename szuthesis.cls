@@ -91,7 +91,7 @@
     %->> Basic
     \def\szu@label@ch@classid{分类号}
     \def\szu@label@ch@schoolid{学校代码}
-    \def\szu@value@ch@schoolid{\ \ \ \ \ 10590}
+    \def\szu@value@ch@schoolid{\ \ \ 10590}
     \def\szu@label@ch@udc{U\hfill{}D\hfill{}C}
     \def\szu@label@ch@confidential{密\qquad{}级}
     \def\szu@label@ch@thesis{}
@@ -102,18 +102,17 @@
     \def\szu@label@ch@idnumber@mas{学位申请人学号}
     \def\szu@label@ch@major{}
     \def\szu@label@ch@major@mas@xs{专\quad{}业\quad{}名\quad{}称}
-    \def\szu@label@ch@major@mas@zy{专\ \ 业\ \ 名\ \ 称}
-    \def\szu@label@ch@degreetype{学\ \ 位\ \ 类\ \ 别}
+    \def\szu@label@ch@major@mas@zy{专业(领域)名称}
     \def\szu@label@ch@dtype{}
-    \def\szu@label@ch@dtype@mas{学\quad{}科\quad{}门\quad{}类}
+    \def\szu@label@ch@dtype@mas@xs{学\quad{}科\quad{}门\quad{}类}
+    \def\szu@label@ch@dtype@mas@zy{学\quad{}位\quad{}类\quad{}别}
     \def\szu@label@ch@institute{}
     \def\szu@label@ch@institute@mas{学院(部,研究院)}
-    \def\szu@label@ch@advisor@mas@xs{导\quad{}师\quad{}姓\quad{}名}
-    \def\szu@label@ch@advisor@mas@zy{指\ \ 导\ \ 教\ \ 师}
+    \def\szu@label@ch@advisor@mas{导\quad{}师\quad{}姓\quad{}名}
     \def\szu@label@ch@school{深圳大学}
     %-----------------------------------------------------------------------%
     %->> Structure elements
-    \def\szu@label@ch@tocname{目\qquad{}录}
+    \def\szu@label@ch@tocname{目\ \ 录}
     \def\szu@label@ch@keywords{关键词：}
     \def\szu@label@en@keywords{Key\ word:}
     %-----------------------------------------------------------------------%
@@ -263,8 +262,6 @@
 \newcommand{\institute}[1]{\long\def\szu@value@ch@institute{#1}}
 \def\szu@value@ch@advisor{}
 \newcommand{\advisor}[1]{\long\def\szu@value@ch@advisor{#1}}
-\def\szu@value@ch@degree{}
-\newcommand{\degree}[1]{\def\szu@value@ch@degree{#1}}
 %-
 %-> english item commands
 %-
@@ -281,17 +278,20 @@
         \def\szu@label@ch@author{\szu@label@ch@author@mas}%
         \def\szu@label@ch@idnumber{\szu@label@ch@idnumber@mas}%
         \def\szu@label@ch@major{\szu@label@ch@major@mas@xs}%
-        \def\szu@label@ch@dtype{\szu@label@ch@dtype@mas}%
+        \def\szu@label@ch@dtype{\szu@label@ch@dtype@mas@xs}%
         \def\szu@label@ch@institute{\szu@label@ch@institute@mas}%
-        \def\szu@label@ch@advisor{\szu@label@ch@advisor@mas@xs}%
-        \def\maketitle{\maketitle@mas@xs}
+        \def\szu@label@ch@advisor{\szu@label@ch@advisor@mas}%
+        \def\maketitle{\maketitle@mas}
     }{%
     \szu@ifstreq{\szu@value@en@degree}{MasterZY}{
         \def\szu@label@ch@thesis{\szu@label@ch@thesis@mas}%
+        \def\szu@label@ch@author{\szu@label@ch@author@mas}%
+        \def\szu@label@ch@idnumber{\szu@label@ch@idnumber@mas}%
         \def\szu@label@ch@major{\szu@label@ch@major@mas@zy}%
+        \def\szu@label@ch@dtype{\szu@label@ch@dtype@mas@zy}%
         \def\szu@label@ch@institute{\szu@label@ch@institute@mas}%
-        \def\szu@label@ch@advisor{\szu@label@ch@advisor@mas@zy}%
-        \def\maketitle{\maketitle@mas@zy}
+        \def\szu@label@ch@advisor{\szu@label@ch@advisor@mas}%
+        \def\maketitle{\maketitle@mas}
     }{
         \szu@error{DEGREE error}
     }}
@@ -299,7 +299,7 @@
 %-
 %-> Define Chinese style
 %-
-\newcommand{\maketitle@mas@xs}{%
+\newcommand{\maketitle@mas}{%
     \szu@clearpage
     \begin{center}
         % \linespread{1.6}
@@ -333,39 +333,7 @@
     \end{center}
     \szu@clearpage
 }
-\newcommand{\maketitle@mas@zy}{%
-    \szu@clearpage
-    \begin{center}
-        % \linespread{1.6}
-        {\zihao{-4}\heiti
-        \begin{tabular}{w{c}{0.50in}>{\zihao{4}}p{0.80in}p{2.40in}w{c}{0.80in}p{0.80in}}
-            \szu@label@ch@classid                 & \szu@song{\szu@value@ch@classid} & & \szu@label@ch@schoolid     & \szu@value@ch@schoolid              \\ \cline{2-2} \cline{5-5}
-            \makebox[0.4in][s]{\szu@label@ch@udc} & \szu@value@ch@udc                & & \szu@label@ch@confidential & \zihao{4}\szu@value@ch@confidential \\ \cline{2-2} \cline{5-5} 
-        \end{tabular}}\\
-        \vspace*{29mm}
-        %
-        {\zihao{2}\rmfamily \szu@label@ch@school\szu@label@ch@thesis}\\
-        \vspace*{9mm}
-        %
-        {\zihao{3}\heiti \szu@value@ch@title@t}\\
-        \vspace*{3mm}
-        {\zihao{3}\heiti \szu@value@ch@title@b}\\
-        \vspace*{14mm}
-        {\zihao{3}\rmfamily \szu@value@ch@author}\\
-        \vspace*{20mm}
-        %
-        \def\arraystretch{1.4}
-        \def\tabcolsep{1pt}
-        {\zihao{3}\rmfamily
-        \begin{tabular}{w{c}{1.8in}p{2.8in}}
-            \szu@label@ch@degreetype    & \ulenhance{\ulextend{\szu@value@ch@degree}}    \\
-            \szu@label@ch@major         & \ulenhance{\ulextend{\szu@value@ch@major}}     \\
-            \szu@label@ch@institute     & \szulntotab{\szu@value@ch@institute}           \\
-            \szu@label@ch@advisor       & \szulntotab{\szu@value@ch@advisor}             \\
-        \end{tabular}}
-    \end{center}
-    \szu@clearpage
-}
+
 %---------------------------------------------------------------------------%
 %->> Author's declaration
 %---------------------------------------------------------------------------%
@@ -636,10 +604,10 @@
     \endgroup%
 }
 %- \szubibliography
-\renewcommand*{\bibfont}{\small}
+\renewcommand*{\bibfont}{\zihao{5}}
 \newcommand*{\szubibliography}{%
     \szu@addtotoc{参考文献}%
-    \printbibliography[title={参\quad{}考\quad{}文\quad{}献}]
+    \printbibliography[title={参\ \ 考\ \ 文\ \ 献}]
 }
 %- Redefine \frontmatter to include the change
 \providecommand{\frontmatter}{}% compatibility for non-book classes
@@ -661,8 +629,7 @@
 \let\backmatterORIG\backmatter
 \renewcommand{\backmatter}{%
     \backmatterORIG%
-    \ctexset{chapter/format = \linespread{1.0}\zihao{-3}\bfseries\szu@fangsong\centering}%
-    \small%
+    \ctexset{chapter/format = \linespread{1.0}\zihao{3}\bfseries\heitib\centering}%
 }
 %---------------------------------------------------------------------------%
 %->> new command
