@@ -116,17 +116,17 @@
 %-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 自用package建议注释掉没有用的包，有些包会产生冲突，但不建议全部注释，有一些可能是通用的。如果不知道要不要注释可以全部注释重新添加需要的包，或者全部保留编译有问题再排除。
-\usepackage{multirow}
-\usepackage{hyperref}
-\usepackage{makecell}
-\usepackage{adjustbox}
-\usepackage{amsmath,amssymb,amsfonts}
-\usepackage{array}
-\usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{tabularx}
-\usepackage{algorithmic}
-\usepackage{diagbox}
+% \usepackage{multirow}
+% \usepackage{hyperref}
+% \usepackage{makecell}
+% \usepackage{adjustbox}
+% \usepackage{amsmath,amssymb}
+% \usepackage{array}
+% \usepackage{booktabs}
+% % \usepackage{longtable},amsfonts
+% \usepackage{tabularx}
+% \usepackage{algorithmic}
+% \usepackage{diagbox}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage[ruled,vlined,linesnumbered]{algorithm2e} % 算法描述
@@ -135,8 +135,8 @@
 %---------------------------------------------------------------------------%
 %->> 配置数学环境
 %---------------------------------------------------------------------------%
-
-\usepackage{pifont}
+\usepackage{amsmath,amssymb}
+% \usepackage{pifont}
 \newcommand*{\dif}{\mathop{}\!\mathrm{d}}
 %- 符号表，参考 http://milde.users.sourceforge.net/LUCR/Math/mathpackages/amssymb-symbols.pdf
 \usepackage{amsthm} % 定理引理等环境
