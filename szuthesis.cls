@@ -6,6 +6,7 @@
 % %---------------------------------------------------------------------------%
 % %- Copyright (C) 2014-2020 Huangrui Mo <huangrui.mo@gmail.com>
 % %-               2021-     Yicheng Su <suyicheng1995@gmail.com>
+% %-               2024-     Jiayao Chen <cjyedu@163.com>
 % %- This is free software: you can redistribute it and/or modify it
 % %- under the terms of the GNU General Public License as published by
 % %- the Free Software Foundation, either version 3 of the License, or
@@ -174,7 +175,8 @@
 \szu@error{`FangSong' font is required! Please install `FangSong'}
 }
 
-\newCJKfontfamily\heitib{FZHei-B01S}[AutoFakeBold=2]
+% \newCJKfontfamily\heiti{FZHei-B01S}[AutoFakeBold=2]
+
 % \def\BoldSongOptions{AutoFakeBold=2}
 % \IfFontExistsTF{Noto~Serif~CJK~SC}{
 %     \newfontfamily\szu@song{Noto~Serif~CJK~SC}[\BoldSongOptions]
@@ -209,6 +211,7 @@
 %- assuming A4 paper (210mm x 297mm)
 %- 深大论文要求：四周留25mm空白。行距一般为23磅。
 % \geometry{margin=25mm,headsep=5mm,headheight=9mm}
+%- 深大论文最新要求：上下留2.54cmm空白，左右留3.17cm空白。行距一般为23磅。
 \geometry{top=2.54cm,bottom=2.54cm,left=3.17cm,right=3.17cm,headsep=3mm,headheight=9mm}
 %- specifies the amount of space between paragraphs. 段落间距
 % \setlength{\parskip}{0.5ex plus 0.25ex minus 0.25ex}
@@ -310,12 +313,12 @@
         \end{tabular}}\\
         \vspace*{29mm}
         %
-        {\zihao{-0}\heitib\textbf{\szu@label@ch@thesis}}\\
+        {\zihao{-0}\heiti\textbf{\szu@label@ch@thesis}}\\
         \vspace*{15mm}
         %
-        {\zihao{-2}\heitib\bfseries \szu@value@ch@title@t}\\
+        {\zihao{-2}\heiti\bfseries \szu@value@ch@title@t}\\
         \vspace*{3mm}
-        {\zihao{-2}\heitib\bfseries \szu@value@ch@title@b}\\
+        {\zihao{-2}\heiti\bfseries \szu@value@ch@title@b}\\
         \vspace*{30mm}
         %
         \def\arraystretch{1.4}
@@ -328,6 +331,7 @@
             \szu@label@ch@dtype     & \ulenhance{\ulextend{\szu@value@ch@dtype}}   \\
             \szu@label@ch@institute & \szulntotab{\szu@value@ch@institute}           \\
             \szu@label@ch@advisor   & \szulntotab{\szu@value@ch@advisor}             \\
+            % 全文打印时间
             \multicolumn{2}{c}{二〇二四年五月}
         \end{tabular}}
     \end{center}
@@ -347,7 +351,7 @@
             %
             \vspace*{1mm}
             \begin{center}
-                \heitib\bfseries
+                \heiti\bfseries
                 {\zihao{3} \szu@label@ch@declare@title} \\
                 \vspace*{3mm}
                 {\zihao{3} \szu@label@ch@declare@creativity}
@@ -361,7 +365,7 @@
             %
             \vspace*{4\baselineskip}
             \begin{center}
-                \heitib\bfseries
+                \heiti\bfseries
                 {\zihao{3} \szu@label@ch@declare@title} \\
                 \vspace*{3mm}
                 {\zihao{3} \szu@label@ch@declare@rights}
@@ -398,11 +402,11 @@
     \noindent {\bfseries \szu@label@en@keywords} #1}
 \newenvironment{abstract}{
     \ctexset{chapter = {
-        format = \linespread{1.0}\zihao{3}\heitib\bfseries\centering,
+        format = \linespread{1.0}\zihao{3}\heiti\bfseries\centering,
         beforeskip = {5pt},
         afterskip = {18pt},
     }}%
-    \chapter[摘要]{摘\quad{}要}%
+    \chapter[摘要]{摘\ \ 要}%
     \pagestyle{mainmatterstyle}%
 }{\szu@clearpage}
 \newenvironment{ABSTRACT}{
@@ -426,7 +430,7 @@
 %- chapter
 \ctexset {
     chapter = {
-        format = \linespread{1.0}\zihao{3}\heitib\bfseries\centering,
+        format = \linespread{1.0}\zihao{3}\heiti\bfseries\centering,
         number = \chinese{chapter},
         aftername = \quad,
         beforeskip = {7pt},
@@ -434,7 +438,7 @@
         pagestyle = plain,
     },
     section = {
-        format = \linespread{1.0}\zihao{-3}\heitib\bfseries\raggedright,
+        format = \linespread{1.0}\zihao{-3}\heiti\bfseries\raggedright,
         aftername = \quad,
         beforeskip = {24pt},
         afterskip = {6pt},
@@ -594,7 +598,7 @@
 \renewcommand{\tableofcontents}{
     \begingroup%
     \ctexset{chapter = {
-        format = \linespread{1.0}\zihao{3}\bfseries\heitib\centering,
+        format = \linespread{1.0}\zihao{3}\bfseries\heiti\centering,
         beforeskip = {10pt},
         afterskip = {30pt},
     }}%
@@ -629,7 +633,7 @@
 \let\backmatterORIG\backmatter
 \renewcommand{\backmatter}{%
     \backmatterORIG%
-    \ctexset{chapter/format = \linespread{1.0}\zihao{3}\bfseries\heitib\centering}%
+    \ctexset{chapter/format = \linespread{1.0}\zihao{3}\bfseries\heiti\centering}%
 }
 %---------------------------------------------------------------------------%
 %->> new command
