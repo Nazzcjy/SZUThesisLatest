@@ -67,6 +67,14 @@
 %-
 \usepackage[format=plain,hangindent=2.0em,font={small},skip=8pt,labelsep=space,labelfont=bf,textfont=bf]{caption}
 %-
+\captionsetup{
+    figurename=图,
+    tablename=表,
+    labelsep=space, % 标签和文本之间的分隔符为一个空格
+    labelfont=bf, % 标签字体加粗
+    textfont=bf % 文本字体加粗
+}%调整图表标题为1-1的形式，如果编号和标题直接间隔过小请在每个图表标题前手动添加空格
+
 \usepackage{subcaption}% 处理子图
 %-
 % \usepackage[list=off]{bicaption} % 双语caption
