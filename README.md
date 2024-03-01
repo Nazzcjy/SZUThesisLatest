@@ -27,7 +27,14 @@
 9. 页眉现在显示为每章标题
 10. 增加了专硕封面、修改了附录、致谢和研究成果的字体大小
 11. 图表标题加粗
-
+12.调整图表标题为1-1的形式，如果编号和标题直接间隔过小请在每个图表标题前手动添加空格，格式如下：
+```latex
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{example-image-a} % 引入一个示例图片
+\caption{\ \ 示例图片} % 在标题文本前手动增加两个空格
+\end{figure}
+```
 ## 注意事项：
 1. 每一章（也就是每一个`\Chapter{章标题}\label{chap:label}`）后，添加`\markboth{第几章\quad 章标题}{}`，例如：
 ```latex
