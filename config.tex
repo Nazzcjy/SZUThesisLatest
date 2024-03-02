@@ -72,7 +72,7 @@
 %调整图表标题为1-1的形式，如果编号和标题直接间隔过小请在每个图表标题前手动添加空格
 \renewcommand{\thefigure}{\thechapter-\arabic{figure}} % 重新定义图的编号格式
 \renewcommand{\thetable}{\thechapter-\arabic{table}} % 重新定义表的编号格式
-
+\renewcommand{\theequation}{\thechapter-\arabic{equation}} % 重新定义公式的编号格式
 
 \usepackage{subcaption}% 处理子图
 %-
@@ -139,6 +139,7 @@
 \usepackage[ruled,vlined,linesnumbered]{algorithm2e} % 算法描述
 \SetAlgorithmName{算法}{算法}{}
 \SetArgSty{textit}
+\renewcommand{\thealgocf}{\thechapter-\arabic{algocf}}%重新定义算法编号
 %---------------------------------------------------------------------------%
 %->> 配置数学环境
 %---------------------------------------------------------------------------%
