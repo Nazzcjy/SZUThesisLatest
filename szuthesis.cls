@@ -145,6 +145,9 @@
 %->> font set
 %---------------------------------------------------------------------------%
 
+\AtBeginEnvironment{tabular}{\fontsize{10pt}{12pt}\selectfont}
+\AtBeginEnvironment{tabularx}{\fontsize{10pt}{12pt}\selectfont}%设置表格字体为5号字
+
 \IfFontExistsTF{XITS-Regular.otf}{%
     \def\XITSFontOptions{%
         Extension  = .otf,     UprightFont    = *-Regular,    BoldFont  = *-Bold,%
