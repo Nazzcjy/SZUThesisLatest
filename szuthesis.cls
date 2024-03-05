@@ -505,7 +505,7 @@
         {\leftskip #2\relax \rightskip \@tocrmarg \parfillskip -\rightskip
         \parindent #2\relax\@afterindenttrue
         \interlinepenalty\@M
-        \leavevmode \zihao{4}\rmfamily
+        \leavevmode \zihao{-4}\rmfamily
         \@tempdima #3\relax
         \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
         {#4}\nobreak
@@ -543,7 +543,7 @@
         \begingroup
             \parindent \z@ \rightskip \@pnumwidth
             \parfillskip -\@pnumwidth
-            \leavevmode \zihao{4}\bfseries\rmfamily
+            \leavevmode \zihao{-4}\bfseries\rmfamily
             \advance\leftskip\@tempdima
             \hskip -\leftskip
             #1\nobreak
