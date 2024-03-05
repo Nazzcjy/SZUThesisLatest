@@ -82,6 +82,13 @@ Windows系统：点击安装即可，但要注意选择<span style="color: red;"
 ```
 4. 有一些自用宏包可能会与现在使用的其他包有冲突，例如已知的longtable包与使用tikz库自定义图形中使用的\fill命令会产生冲突，建议使用前检查config.tex文件中第118-129行。
 
+5. suzthesis.cls文件中定义的封面部分修改如下：
+* 重定义了新的表格环境，消除表格字体全局设置的影响；
+* 注意更改封面定义部分中表格语句。
+![image](https://github.com/cflee123/SZUThesisLatest/assets/131333379/7695d954-f17e-4ad8-9999-ca3106fc5bbf)
+
+
+
 
 # szuthesis 深圳大学学位论文 LaTeX 模板 （参考项目中的ReadMe文件）
 
