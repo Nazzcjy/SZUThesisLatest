@@ -144,10 +144,6 @@
 %---------------------------------------------------------------------------%
 %->> font set
 %---------------------------------------------------------------------------%
-
-\AtBeginEnvironment{tabular}{\fontsize{10pt}{12pt}\selectfont}
-\AtBeginEnvironment{tabularx}{\fontsize{10pt}{12pt}\selectfont}%设置表格字体为5号字
-
 \IfFontExistsTF{XITS-Regular.otf}{%
     \def\XITSFontOptions{%
         Extension  = .otf,     UprightFont    = *-Regular,    BoldFont  = *-Bold,%
@@ -305,38 +301,45 @@
 %-
 %-> Define Chinese style
 %-
+\AtBeginEnvironment{tabular}{\zihao{5}\selectfont}
+\AtBeginEnvironment{tabularx}{\zihao{5}\selectfont}%设置表格字体为5号字
+
+\newenvironment{mytabular}%重新定义表格格式
+  {\tabular}
+  {\endtabular}
+
 \newcommand{\maketitle@mas}{%
     \szu@clearpage
+    
     \begin{center}
         % \linespread{1.6}
         {\zihao{-4}\heiti
-        \begin{tabular}{w{c}{0.50in}>{\zihao{-4}}p{0.80in}p{2.40in}w{c}{0.80in}p{0.80in}}
+        \begin{mytabular}{w{c}{0.50in}>{\zihao{-4}}p{0.80in}p{2.40in}w{c}{0.80in}p{0.80in}}
             \szu@label@ch@classid                 & \szu@song{\szu@value@ch@classid} & & \szu@label@ch@schoolid     & \szu@value@ch@schoolid              \\ \cline{2-2} \cline{5-5}
             \makebox[0.4in][s]{\szu@label@ch@udc} & \szu@value@ch@udc                & & \szu@label@ch@confidential & \zihao{-4}\szu@value@ch@confidential \\ \cline{2-2} \cline{5-5} 
-        \end{tabular}}\\
+        \end{mytabular}}\\
         \vspace*{29mm}
         %
-        {\zihao{-0}\heiti\textbf{\szu@label@ch@thesis}}\\
+        {\zihao{-0}\heitib\textbf{\szu@label@ch@thesis}}\\
         \vspace*{15mm}
         %
-        {\zihao{-2}\heiti\bfseries \szu@value@ch@title@t}\\
+        {\zihao{-2}\heitib\bfseries \szu@value@ch@title@t}\\
         \vspace*{3mm}
-        {\zihao{-2}\heiti\bfseries \szu@value@ch@title@b}\\
+        {\zihao{-2}\heitib\bfseries \szu@value@ch@title@b}\\
         \vspace*{30mm}
         %
         \def\arraystretch{1.4}
         \def\tabcolsep{1pt}
         {\zihao{3}\rmfamily
-        \begin{tabular}{w{c}{1.8in}w{c}{2.8in}}
+        \begin{mytabular}{w{c}{1.8in}w{c}{2.8in}}
             \szu@label@ch@author    & \ulenhance{\ulextend{\szu@value@ch@author}}  \\
             \szu@label@ch@idnumber    & \ulenhance{\ulextend{\szu@value@ch@idnumber}}  \\
             \szu@label@ch@major     & \ulenhance{\ulextend{\szu@value@ch@major}}   \\
             \szu@label@ch@dtype     & \ulenhance{\ulextend{\szu@value@ch@dtype}}   \\
             \szu@label@ch@institute & \szulntotab{\szu@value@ch@institute}           \\
             \szu@label@ch@advisor   & \szulntotab{\szu@value@ch@advisor}             \\
-            % 全文打印时间
             \multicolumn{2}{c}{二〇二四年五月}
-        \end{tabular}}
+        \end{mytabular}}
     \end{center}
     \szu@clearpage
 }
