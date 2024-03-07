@@ -174,7 +174,7 @@
 \szu@error{`FangSong' font is required! Please install `FangSong'}
 }
 
-\newCJKfontfamily\heiti{FZHei-B01S}[AutoFakeBold=2]
+\newCJKfontfamily\heitib{FZHei-B01S}[AutoFakeBold=2]
 
 % \def\BoldSongOptions{AutoFakeBold=2}
 % \IfFontExistsTF{Noto~Serif~CJK~SC}{
