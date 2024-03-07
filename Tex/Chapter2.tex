@@ -227,15 +227,15 @@ Windows 平台下，正文默认宋体，粗体则使用黑体代替，斜体则
 
 \subsection{表格}
 
-根据印刷格式样式，表格中应使用小五号宋体，最好能够同时调整行间距和表格间距以获得较好的效果。
+根据印刷格式样式，表格中应使用五号宋体，最好能够同时调整行间距和表格间距以获得较好的效果。
 学术论文通常使用 \cs{toprule}、\cs{midrule}、\cs{bottomrule} 绘制三线表，效果如表~\ref{tab:sample} 所示。
 此外，\pkg{threeparttable} 宏包提供了子环境可以支持在表格中添加脚注，\pkg{longtable} 宏包实现了可以书写跨页
-的长表格。
+的长表格。超出页面的大表格如果想用\cs{resizebox}或者\cs{adjustbox}调整时，会将字体变小，但是暂未有办法解决，请先尝试调整列间距。
 
 \begin{table}[!htbp]
   \caption{这是一个标准的三线表}\label{tab:sample}
   \centering
-  \footnotesize% fontsize，小五号字
+  % \zihao{5}\rmfamily% 五号字,已在全局定义
   \setlength{\tabcolsep}{4pt}% column separation，表格间距
   \renewcommand{\arraystretch}{1.2}% row space ，行间距
   \begin{tabular}{lcccccccc}
