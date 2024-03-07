@@ -1,6 +1,7 @@
 # 深圳大学研究生学位论文 LaTeX 模板（2024年要求）
 ## 模板简介
 * 本项目基于 [深圳大学学位论文 LaTeX 模板](https://github.com/yichengsu/szuthesis) 针对深大2024年论文格式进行修改(Windows系统为主，mac和linux可能会有未知问题)。
+* 最近更新了cls文件修复了一些格式问题，请注意替换和更改。
 
 ## 编译
 推荐使用 Tex Live 2020 + VS Code(LaTeX Workshop插件)，本项目已经提供了`.vscode/settings.json`进行相关设置。
