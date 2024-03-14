@@ -439,7 +439,7 @@
         format = \linespread{1.0}\zihao{3}\heiti\bfseries\centering,
         number = \chinese{chapter},
         aftername = \quad,
-        beforeskip = {7pt},
+        beforeskip = {24pt},
         afterskip = {18pt},
         pagestyle = plain,
     },
@@ -456,7 +456,7 @@
         afterskip = {6pt},
     },
     subsubsection = {
-        format = \linespread{1.0}\zihao{-4}\rmfamily\raggedright,
+        format = \linespread{1.0}\zihao{-4}\rmfamily\bfseries\raggedright,
         aftername = \quad,
         beforeskip = {12pt},
         afterskip = {6pt},
