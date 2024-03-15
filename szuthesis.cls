@@ -155,15 +155,15 @@
 }{%
     \szu@error{XITS font is required! Please install `xits' in Tex Live Shell}
 }
-\IfFontExistsTF{Lucida Console}{% for abstract titile
-    \newfontfamily\szu@lucon{Lucida Console}[AutoFakeBold=2]
+\IfFontExistsTF{Arial}{% for abstract titile
+    \newfontfamily\szu@lucon{Arial}[AutoFakeBold=2]
 }{
-    \szu@error{`Lucida Console' font is required! Please install `Lucida Console'}
+    \szu@error{`Arial' font is required! Please install `Arial'}
 }
 % bold songti patch
 
 \IfFontExistsTF{SimSun}{
-\newfontfamily\szu@song{SimSun}[AutoFakeBold=2]
+\newCJKfontfamily\szu@song{SimSun}[AutoFakeBold=2]
 }{
 \szu@error{`SimSun' font is required! Please install `SimSun'}
 }
@@ -193,7 +193,7 @@
 %     \newCJKfontfamily\szu@song{AdobeSongStd-Light}[\BoldSongOptions]
 %     \newCJKfontfamily\szu@fangsong{AdobeFangsongStd-Regular}[\BoldSongOptions]
 % }{\szu@ifstreq{\szu@fontset}{mac}{
-%     \def\szu@song\rmfamily
+%     \def\szu@song\szu@song
 %     \newCJKfontfamily\szu@fangsong{STFangsong}[\BoldSongOptions]
 % }{\szu@ifstreq{\szu@fontset}{luubuntu}{
 %     \newCJKfontfamily\szu@song{Noto~Serif~CJK~SC}[\BoldSongOptions]
@@ -330,7 +330,7 @@
         %
         \def\arraystretch{1.4}
         \def\tabcolsep{1pt}
-        {\zihao{3}\rmfamily
+        {\zihao{3}\szu@song
         \begin{mytabular}{w{c}{1.8in}w{c}{2.8in}}
             \szu@label@ch@author    & \ulenhance{\ulextend{\szu@value@ch@author}}  \\
             \szu@label@ch@idnumber    & \ulenhance{\ulextend{\szu@value@ch@idnumber}}  \\
@@ -439,7 +439,7 @@
         format = \linespread{1.0}\zihao{3}\heiti\bfseries\centering,
         number = \chinese{chapter},
         aftername = \quad,
-        beforeskip = {24pt},
+        beforeskip = {18pt},
         afterskip = {18pt},
         pagestyle = plain,
     },
@@ -450,20 +450,20 @@
         afterskip = {6pt},
     },
     subsection = {
-        format = \linespread{1.0}\zihao{4}\rmfamily\bfseries\raggedright,
+        format = \linespread{1.0}\zihao{4}\szu@song\bfseries\raggedright,
         aftername = \quad,
         beforeskip = {12pt},
         afterskip = {6pt},
     },
     subsubsection = {
-        format = \linespread{1.0}\zihao{-4}\rmfamily\bfseries\raggedright,
+        format = \linespread{1.0}\zihao{-4}\szu@song\bfseries\raggedright,
         aftername = \quad,
         beforeskip = {12pt},
         afterskip = {6pt},
     },
     appendix = {
         %numbering = true|false,
-        %number = \rmfamily\Alph{chapter},
+        %number = \szu@song\Alph{chapter},
     }
 }
 %---------------------------------------------------------------------------%
@@ -505,7 +505,7 @@
         {\leftskip #2\relax \rightskip \@tocrmarg \parfillskip -\rightskip
         \parindent #2\relax\@afterindenttrue
         \interlinepenalty\@M
-        \leavevmode \zihao{-4}\rmfamily
+        \leavevmode \zihao{-4}\szu@song
         \@tempdima #3\relax
         \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
         {#4}\nobreak
@@ -525,7 +525,7 @@
             \parindent \z@ \rightskip \@pnumwidth
             \parfillskip -\@pnumwidth
             {\leavevmode
-            \zihao{-4}\rmfamily #1
+            \zihao{-4}\szu@song #1
             \leaders\hbox{$\m@th\mkern \@dotsep \cdot\mkern \@dotsep$}% add dotted toc line
             \hfil \hb@xt@\@pnumwidth{\hss #2}}\par
             \nobreak
@@ -543,7 +543,7 @@
         \begingroup
             \parindent \z@ \rightskip \@pnumwidth
             \parfillskip -\@pnumwidth
-            \leavevmode \zihao{-4}\bfseries\rmfamily
+            \leavevmode \zihao{-4}\bfseries\szu@song
             \advance\leftskip\@tempdima
             \hskip -\leftskip
             #1\nobreak

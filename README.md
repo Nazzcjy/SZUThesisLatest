@@ -100,6 +100,25 @@ Windows系统：点击安装即可，但要注意选择<span style="color: red;"
 
 
 
+
+![image](https://github.com/cflee123/SZUThesisLatest/assets/131333379/c4251886-02b5-41fa-8a9e-45748dba8d91)
+
+![1](https://github.com/cflee123/SZUThesisLatest/assets/131333379/d6cc89d4-476b-4df7-b025-be876a68df11)
+
+![2](https://github.com/cflee123/SZUThesisLatest/assets/131333379/d22bed1e-490e-4934-b00d-fbdf23d942d6)
+
+![3](https://github.com/cflee123/SZUThesisLatest/assets/131333379/926c92fd-5c45-4139-a72e-ecd2e6564d83)
+
+![4](https://github.com/cflee123/SZUThesisLatest/assets/131333379/5bc9853a-9e77-4bab-a0d2-6bd580c8a187)
+
+![5](https://github.com/cflee123/SZUThesisLatest/assets/131333379/c1847ff6-775e-4f16-98bb-acbe3862ca50)
+
+![6](https://github.com/cflee123/SZUThesisLatest/assets/131333379/fe84f32c-5f3a-4aef-bac1-9ed6073ee3a7)
+
+![7](https://github.com/cflee123/SZUThesisLatest/assets/131333379/63208cf8-7996-4deb-a191-247c0a076afa)
+
+
+
 # szuthesis 深圳大学学位论文 LaTeX 模板 （参考项目中的ReadMe文件）
 
 ## 模板简介
