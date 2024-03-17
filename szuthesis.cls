@@ -401,7 +401,7 @@
 %- define chinese keywords
 \newcommand{\keywords}[1]{%
     \vspace*{2\baselineskip}
-    \noindent {\szu@song\bfseries \szu@label@ch@keywords} #1}
+    \noindent {\heitib\bfseries \szu@label@ch@keywords} #1}
 %- define engish keywords
 \newcommand{\KEYWORDS}[1]{%
     \vspace*{2\baselineskip}
