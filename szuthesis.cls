@@ -6,7 +6,6 @@
 % %---------------------------------------------------------------------------%
 % %- Copyright (C) 2014-2020 Huangrui Mo <huangrui.mo@gmail.com>
 % %-               2021-     Yicheng Su <suyicheng1995@gmail.com>
-% %-               2024-     Jiayao Chen <cjyedu@163.com>
 % %- This is free software: you can redistribute it and/or modify it
 % %- under the terms of the GNU General Public License as published by
 % %- the Free Software Foundation, either version 3 of the License, or
@@ -115,7 +114,7 @@
     %->> Structure elements
     \def\szu@label@ch@tocname{目\ \ 录}
     \def\szu@label@ch@keywords{关键词：}
-    \def\szu@label@en@keywords{Key\ word:}
+    \def\szu@label@en@keywords{Key\ words:}
     %-----------------------------------------------------------------------%
     %->> Author's declaration
     \def\szu@label@ch@declare@title{深圳大学}
@@ -144,6 +143,8 @@
 %---------------------------------------------------------------------------%
 %->> font set
 %---------------------------------------------------------------------------%
+
+
 \IfFontExistsTF{XITS-Regular.otf}{%
     \def\XITSFontOptions{%
         Extension  = .otf,     UprightFont    = *-Regular,    BoldFont  = *-Bold,%
@@ -156,18 +157,18 @@
     \szu@error{XITS font is required! Please install `xits' in Tex Live Shell}
 }
 \IfFontExistsTF{Arial}{% for abstract titile
-    \newfontfamily\szu@lucon{Arial}[AutoFakeBold=2]
+    \newfontfamily\arial{Arial}[AutoFakeBold=2]
 }{
     \szu@error{`Arial' font is required! Please install `Arial'}
 }
 % bold songti patch
 
 \IfFontExistsTF{SimSun}{
-\newCJKfontfamily\szu@song{SimSun}[AutoFakeBold=2]
+    \newCJKfontfamily\song{SimSun}[AutoFakeBold=3]
 }{
 \szu@error{`SimSun' font is required! Please install `SimSun'}
 }
-
+    % \def\szu@song\rmfamily
 \IfFontExistsTF{FangSong}{
 \newCJKfontfamily\szu@fangsong{FangSong}[AutoFakeBold=2]
 }{
@@ -180,7 +181,7 @@
 % \IfFontExistsTF{Noto~Serif~CJK~SC}{
 %     \newfontfamily\szu@song{Noto~Serif~CJK~SC}[\BoldSongOptions]
 %     \IfFontExistsTF{FangSong}{
-%     \newCJKfontfamily\szu@fangsong{FangSong}[\BoldSongOptions]
+% \newCJKfontfamily\szu@songti{songti}[AutoFakeBold=2]
 %     }{
 %     \def\szu@fangsong\szu@song
 %     \szu@warning{No FangSong font was found, SongTi is used default. Please install FangSong or adobe series fonts.}
@@ -193,7 +194,7 @@
 %     \newCJKfontfamily\szu@song{AdobeSongStd-Light}[\BoldSongOptions]
 %     \newCJKfontfamily\szu@fangsong{AdobeFangsongStd-Regular}[\BoldSongOptions]
 % }{\szu@ifstreq{\szu@fontset}{mac}{
-%     \def\szu@song\szu@song
+% \def\szu@song\rmfamily
 %     \newCJKfontfamily\szu@fangsong{STFangsong}[\BoldSongOptions]
 % }{\szu@ifstreq{\szu@fontset}{luubuntu}{
 %     \newCJKfontfamily\szu@song{Noto~Serif~CJK~SC}[\BoldSongOptions]
@@ -210,7 +211,6 @@
 %- assuming A4 paper (210mm x 297mm)
 %- 深大论文要求：四周留25mm空白。行距一般为23磅。
 % \geometry{margin=25mm,headsep=5mm,headheight=9mm}
-%- 深大论文最新要求：上下留2.54cmm空白，左右留3.17cm空白。行距一般为23磅。
 \geometry{top=2.54cm,bottom=2.54cm,left=3.17cm,right=3.17cm,headsep=3mm,headheight=9mm}
 %- specifies the amount of space between paragraphs. 段落间距
 % \setlength{\parskip}{0.5ex plus 0.25ex minus 0.25ex}
@@ -301,10 +301,11 @@
 %-
 %-> Define Chinese style
 %-
+
 \AtBeginEnvironment{tabular}{\zihao{5}\selectfont}
 \AtBeginEnvironment{tabularx}{\zihao{5}\selectfont}%设置表格字体为5号字
 
-\newenvironment{mytabular}%重新定义表格格式
+\newenvironment{mytabular}
   {\tabular}
   {\endtabular}
 
@@ -313,9 +314,9 @@
     
     \begin{center}
         % \linespread{1.6}
-        {\zihao{-4}\heiti
+        {\zihao{-4}\heitib
         \begin{mytabular}{w{c}{0.50in}>{\zihao{-4}}p{0.80in}p{2.40in}w{c}{0.80in}p{0.80in}}
-            \szu@label@ch@classid                 & \szu@song{\szu@value@ch@classid} & & \szu@label@ch@schoolid     & \szu@value@ch@schoolid              \\ \cline{2-2} \cline{5-5}
+            \szu@label@ch@classid                 & \song{\szu@value@ch@classid} & & \szu@label@ch@schoolid     & \szu@value@ch@schoolid              \\ \cline{2-2} \cline{5-5}
             \makebox[0.4in][s]{\szu@label@ch@udc} & \szu@value@ch@udc                & & \szu@label@ch@confidential & \zihao{-4}\szu@value@ch@confidential \\ \cline{2-2} \cline{5-5} 
         \end{mytabular}}\\
         \vspace*{29mm}
@@ -330,7 +331,7 @@
         %
         \def\arraystretch{1.4}
         \def\tabcolsep{1pt}
-        {\zihao{3}\szu@song
+        {\zihao{3}\song
         \begin{mytabular}{w{c}{1.8in}w{c}{2.8in}}
             \szu@label@ch@author    & \ulenhance{\ulextend{\szu@value@ch@author}}  \\
             \szu@label@ch@idnumber    & \ulenhance{\ulextend{\szu@value@ch@idnumber}}  \\
@@ -357,7 +358,7 @@
             %
             \vspace*{1mm}
             \begin{center}
-                \heiti\bfseries
+                \heitib\bfseries
                 {\zihao{3} \szu@label@ch@declare@title} \\
                 \vspace*{3mm}
                 {\zihao{3} \szu@label@ch@declare@creativity}
@@ -371,7 +372,7 @@
             %
             \vspace*{4\baselineskip}
             \begin{center}
-                \heiti\bfseries
+                \heitib\bfseries
                 {\zihao{3} \szu@label@ch@declare@title} \\
                 \vspace*{3mm}
                 {\zihao{3} \szu@label@ch@declare@rights}
@@ -408,16 +409,16 @@
     \noindent {\bfseries \szu@label@en@keywords} #1}
 \newenvironment{abstract}{
     \ctexset{chapter = {
-        format = \linespread{1.0}\zihao{3}\heiti\bfseries\centering,
+        format = \linespread{1.0}\zihao{3}\heitib\bfseries\centering,
         beforeskip = {5pt},
         afterskip = {18pt},
     }}%
-    \chapter[摘要]{摘\ \ 要}%
+    \chapter[摘要]{摘\quad{}要}%
     \pagestyle{mainmatterstyle}%
 }{\szu@clearpage}
 \newenvironment{ABSTRACT}{
     \ctexset{chapter = {
-        format = \linespread{1.0}\zihao{3}\szu@lucon\bfseries\centering,
+        format = \linespread{1.0}\zihao{3}\arial\bfseries\centering,
         beforeskip = {5pt},
         afterskip = {18pt},
     }}%
@@ -434,44 +435,50 @@
 %->> Structure layout
 %---------------------------------------------------------------------------%
 %- chapter
+
 \ctexset {
     chapter = {
-        format = \linespread{1.0}\zihao{3}\heiti\bfseries\centering,
+        format = \linespread{1.0}\zihao{3}\heitib\bfseries\centering,
         number = \chinese{chapter},
         aftername = \quad,
-        beforeskip = {18pt},
-        afterskip = {18pt},
+        beforeskip = {5pt},
+        afterskip = {31pt},%调整了章标题前后缩进，按需调整
         pagestyle = plain,
     },
     section = {
-        format = \linespread{1.0}\zihao{-3}\heiti\bfseries\raggedright,
+        format = \linespread{1.0}\zihao{-3}\heitib\bfseries\raggedright,
         aftername = \quad,
         beforeskip = {24pt},
         afterskip = {6pt},
+        % number = {\songti\arabic{chapter}.\arabic{section}}
     },
     subsection = {
-        format = \linespread{1.0}\zihao{4}\szu@song\bfseries\raggedright,
+        format = \linespread{1.0}\zihao{4}\song\bfseries\raggedright,
         aftername = \quad,
         beforeskip = {12pt},
         afterskip = {6pt},
+        % number = {\songti\arabic{chapter}.\arabic{section}.\arabic{subsection}}
     },
     subsubsection = {
-        format = \linespread{1.0}\zihao{-4}\szu@song\bfseries\raggedright,
+        format = \linespread{1.0}\zihao{-4}\song\bfseries\raggedright,
         aftername = \quad,
         beforeskip = {12pt},
         afterskip = {6pt},
+        % number={\szu@song\arabic{section}}
+        % number = {\songti\arabic{chapter}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
     },
     appendix = {
         %numbering = true|false,
-        %number = \szu@song\Alph{chapter},
+        %number = \rmfamily\Alph{chapter},
     }
 }
+
 %---------------------------------------------------------------------------%
 %->> Configure table of contents
 %---------------------------------------------------------------------------%
 %- the table of contents is specified by defining \l@chapter, \l@section, ...
 %- most commands are then defined with the \@dottedtocline:
-%- \@dottedtocline{⟨level⟩}{⟨indent⟩}{⟨numwidth⟩}{⟨title⟩}{⟨page⟩}
+%- \@dottedtocline{⟨level⟩}{⟨indent⟩}{⟨numwidth⟩}{⟨title⟩}{⟨page⟩}subsubsection
 %- ⟨level⟩    an entry is produced only if ⟨level⟩ <= value of the tocdepth counter
 %-            note, \chapter is level 0, \section is level 1, etc
 %- ⟨indent⟩   indentation from the outer left margin of the start of the contents line
@@ -505,7 +512,7 @@
         {\leftskip #2\relax \rightskip \@tocrmarg \parfillskip -\rightskip
         \parindent #2\relax\@afterindenttrue
         \interlinepenalty\@M
-        \leavevmode \zihao{-4}\szu@song
+        \leavevmode \zihao{-4}\song
         \@tempdima #3\relax
         \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
         {#4}\nobreak
@@ -525,7 +532,7 @@
             \parindent \z@ \rightskip \@pnumwidth
             \parfillskip -\@pnumwidth
             {\leavevmode
-            \zihao{-4}\szu@song #1
+            \zihao{-4}\song #1
             \leaders\hbox{$\m@th\mkern \@dotsep \cdot\mkern \@dotsep$}% add dotted toc line
             \hfil \hb@xt@\@pnumwidth{\hss #2}}\par
             \nobreak
@@ -543,7 +550,7 @@
         \begingroup
             \parindent \z@ \rightskip \@pnumwidth
             \parfillskip -\@pnumwidth
-            \leavevmode \zihao{-4}\bfseries\szu@song
+            \leavevmode \zihao{-4}\bfseries\song
             \advance\leftskip\@tempdima
             \hskip -\leftskip
             #1\nobreak
@@ -573,8 +580,8 @@
     \fancyhead[C]{\small\rmfamily \leftmark}% structure elements
     \fancyfoot[C]{\small\rmfamily \thepage}% page number
     \renewcommand{\headrule}{
-\makebox[0pt][l]{\rule[0.55\baselineskip]{\headwidth}{0.5pt}}%
-\rule[0.7\baselineskip]{\headwidth}{1pt}}
+\makebox[0pt][l]{\rule[0.6\baselineskip]{\headwidth}{0.6pt}}%
+\rule[0.7\baselineskip]{\headwidth}{1.2pt}}
     % \renewcommand{\headrulewidth}{2pt}% header rule
     \renewcommand{\footrulewidth}{0pt}% footer rule
 }
@@ -589,8 +596,8 @@
     \fancyhead[C]{\small\rmfamily \szu@value@en@title}% use english title
     \fancyfoot[C]{\small\rmfamily \thepage}% page number
     \renewcommand{\headrule}{
-\makebox[0pt][l]{\rule[0.55\baselineskip]{\headwidth}{0.5pt}}%
-\rule[0.7\baselineskip]{\headwidth}{1pt}}
+\makebox[0pt][l]{\rule[0.6\baselineskip]{\headwidth}{0.6pt}}%
+\rule[0.7\baselineskip]{\headwidth}{1.2pt}}
     % \renewcommand{\headrulewidth}{2pt}% header rule
     \renewcommand{\footrulewidth}{0pt}% footer rule
 }
@@ -604,7 +611,7 @@
 \renewcommand{\tableofcontents}{
     \begingroup%
     \ctexset{chapter = {
-        format = \linespread{1.0}\zihao{3}\bfseries\heiti\centering,
+        format = \linespread{1.0}\zihao{3}\bfseries\heitib\centering,
         beforeskip = {10pt},
         afterskip = {30pt},
     }}%
@@ -639,7 +646,7 @@
 \let\backmatterORIG\backmatter
 \renewcommand{\backmatter}{%
     \backmatterORIG%
-    \ctexset{chapter/format = \linespread{1.0}\zihao{3}\bfseries\heiti\centering}%
+    \ctexset{chapter/format = \linespread{1.0}\zihao{3}\bfseries\heitib\centering}%
 }
 %---------------------------------------------------------------------------%
 %->> new command
