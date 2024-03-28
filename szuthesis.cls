@@ -176,7 +176,7 @@
 }
 
 \newCJKfontfamily\heitib{FZHei-B01S}[AutoFakeBold=2]
-% \newCJKfontfamily\heiti{FZHei-B01S}[AutoFakeBold=2]
+
 % \def\BoldSongOptions{AutoFakeBold=2}
 % \IfFontExistsTF{Noto~Serif~CJK~SC}{
 %     \newfontfamily\szu@song{Noto~Serif~CJK~SC}[\BoldSongOptions]
